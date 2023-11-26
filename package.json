@@ -4,7 +4,6 @@
   "description": "Week 7 del Bootcamp, challenge backend",
   "type": "module",
   "main": "index.js",
-  
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -20,7 +19,6 @@
     "api": "json-server --watch ./api/db.json"
   },
   "keywords": [],
-  "author": "eliasmr98 & Sergi Casiano",
   "license": "ISC",
   "prettier": {
     "singleQuote": true
@@ -58,4 +56,3 @@
     "react-redux": "^8.0.1"
   }
 }
-
