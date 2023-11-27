@@ -1,16 +1,14 @@
-import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit';
-import usersReducer from '../redux/userSlice';
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
-export const networkStore = configureStore({
-  reducer: {
-    networkUsers: usersReducer,
-  },
+export const store = configureStore({
+  reducer: {},
 });
 
-export type NetworkDispatch = typeof networkStore.dispatch;
-export type RootState = ReturnType<typeof networkStore.getState>;
+export type AppDispatch = typeof store.dispatch;
 
-export type NetworkThunk<ReturnType = void> = ThunkAction<
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
   unknown,
