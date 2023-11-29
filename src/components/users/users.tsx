@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useUsers } from '../../hooks/useUsers';
-import { User } from '../../model/user';
+import { User } from '../../entities/user';
 import { UserCard } from '../usercard/usercard';
 
 export function AllUsers() {

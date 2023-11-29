@@ -1,7 +1,7 @@
 import { SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useUsers } from '../../hooks/useUsers';
-import { UserLoginData } from '../../model/user';
+import { UserLoginData } from '../../entities/user';
 
 export function Login() {
   const { loginUser } = useUsers();

@@ -1,3 +1,3 @@
-export default function App() {
-  return <></>;
+export function App() {
+  return <>Hola</>;
 }

@@ -1,4 +1,4 @@
-import { User } from '../../model/user';
+import { User } from '../../entities/user';
 
 type Props = {
   user: User;

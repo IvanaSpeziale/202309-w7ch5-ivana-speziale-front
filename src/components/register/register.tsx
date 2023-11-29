@@ -1,7 +1,7 @@
 import { SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useUsers } from '../../hooks/useUsers';
-import { UserNoId } from '../../model/user';
+import { UserNoId } from '../../entities/user';
 
 export function Register() {
   const { addUser } = useUsers();
