@@ -1,38 +1,37 @@
 import { SyntheticEvent } from 'react';
-import { Link } from 'react-router-dom';
-import { useUsers } from '../../hooks/useUsers';
-import { UserLoginData } from '../../entities/user';
+import { LoginUser } from '../../entities/user';
+import { useUsers } from '../../hooks/users.hook';
+import { loginForm } from './login.module.scss';
 
-export function Login() {
-  const { loginUser } = useUsers();
+type Props = {
+  closeModal: () => void;
+};
+export function Login({ closeModal }: Props) {
+  const { login } = useUsers();
 
-  const handleSubmit = (ev: SyntheticEvent) => {
-    ev.preventDefault();
-    const formElement = ev.currentTarget as HTMLFormElement;
-    const userLogin: UserLoginData = {
-      userName: (formElement.elements.namedItem('userName') as HTMLFormElement)
-        .value,
-      password: (formElement.elements.namedItem('password') as HTMLFormElement)
-        .value,
+  const handleSubmit = (event: SyntheticEvent) => {
+    event.preventDefault();
+    const formElement = event.target as HTMLFormElement;
+    const formData = new FormData(formElement);
+    const loginUser: LoginUser = {
+      email: formData.get('email')?.toString() as string,
+      passwd: formData.get('password')?.toString() as string,
     };
-    console.log(userLogin);
-    loginUser(userLogin);
+    login(loginUser);
+    closeModal();
   };
 
   return (
-    <div>
-      <h2>Welcome back, please log in!</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="">User Name</label>
-          <input name="userName" type="text" required />
-          <label htmlFor="">Password</label>
-          <input name="password" type="password" required />
-        </div>
-
+    <>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit} className={loginForm}>
+        <input type="email" name="email" placeholder="email" />
+        <input type="password" name="password" placeholder="password" />
         <button type="submit">Login</button>
+        <button type="button" onClick={closeModal}>
+          Cancelar
+        </button>
       </form>
-      <Link to={'/'}>Back</Link>
-    </div>
+    </>
   );
 }

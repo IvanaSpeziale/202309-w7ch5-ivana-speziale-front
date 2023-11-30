@@ -1,7 +1,10 @@
+import { UserButtons } from '../user.buttons/user.buttons';
+import { header } from './header.module.scss';
 export function Header() {
   return (
-    <header>
+    <header className={header}>
       <h1>Friends 2B Friends</h1>
+      <UserButtons></UserButtons>
     </header>
   );
 }
